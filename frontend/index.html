@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Search Agent</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🤖 AI Job Search Agent</h1>
+            <p class="subtitle">Find your perfect job with AI-powered matching</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="search">Job Search</button>
+            <button class="tab-btn" data-tab="saved">Saved Jobs</button>
+            <button class="tab-btn" data-tab="history">Search History</button>
+        </nav>
+
+        <!-- Search Tab -->
+        <div id="search-tab" class="tab-content active">
+            <div class="search-section">
+                <h2>Search for Jobs</h2>
+                <form id="jobSearchForm" class="job-form">
+                    <div class="form-group">
+                        <label for="jobQuery">What job are you looking for?</label>
+                        <input 
+                            type="text" 
+                            id="jobQuery" 
+                            name="jobQuery" 
+                            placeholder="e.g., Find 5 Software Engineer jobs in San Francisco"
+                            required
+                        >
+                        <small class="help-text">Example: "Find 10 Python developer jobs in New York with 3 years experience"</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resumeFile">Upload Your Resume (PDF)</label>
+                        <div class="file-upload-wrapper">
+                            <input 
+                                type="file" 
+                                id="resumeFile" 
+                                name="resumeFile" 
+                                accept=".pdf"
+                                required
+                            >
+                            <span class="file-name">No file chosen</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="searchBtn">
+                        <span class="btn-text">Search Jobs</span>
+                        <span class="spinner" style="display: none;"></span>
+                    </button>
+                </form>
+
+                <!-- Loading State -->
+                <div id="loadingState" class="loading-state" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing jobs and matching with your resume...</p>
+                    <p class="loading-subtext">This may take 30-60 seconds</p>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="results-section" style="display: none;">
+                    <div class="results-header">
+                        <h2>Job Search Results</h2>
+                        <button id="clearResults" class="btn btn-secondary">Clear Results</button>
+                    </div>
+
+                    <!-- Resume Summary -->
+                    <div class="resume-summary">
+                        <h3>📄 Your Resume Summary</h3>
+                        <div id="resumeSummary" class="summary-content"></div>
+                    </div>
+
+                    <!-- Job Cards -->
+                    <div id="jobResults" class="job-cards"></div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Saved Jobs Tab -->
+        <div id="saved-tab" class="tab-content">
+            <div class="saved-section">
+                <div class="section-header">
+                    <h2>💼 Saved Jobs</h2>
+                    <button id="refreshSaved" class="btn btn-secondary">Refresh</button>
+                </div>
+                <div id="savedJobsList" class="saved-jobs-list">
+                    <p class="loading-text">Loading saved jobs...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history-tab" class="tab-content">
+            <div class="history-section">
+                <div class="section-header">
+                    <h2>📜 Search History</h2>
+                    <button id="refreshHistory" class="btn btn-secondary">Refresh</button>
+                </div>
+                <div id="historyList" class="history-list">
+                    <p class="loading-text">Loading search history...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Job Details -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

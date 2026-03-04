@@ -1,0 +1,48 @@
+**/apify_api.ipynb
+**/serp_api.ipynb
+**/salenium.ipynb
+.env
+Workflow_pdf/
+notebooks/
+**.pdf
+**.txt
+**.md
+**.json
+credentials
+
+
+# Logging
+logs/
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+trial/
+**test.py
+
+run_api.py
+scrape_linkedin_job.py
+
+**.db
